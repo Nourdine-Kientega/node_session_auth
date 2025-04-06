@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="read-course-container">
+        <!-- Course Title -->
+        <h1 class="course-title">
+            <%= course ? course.title : 'Course Title Goes Here' %>
+        </h1>
+
+        <div class="course-video">
+            <iframe width="100%" height="500" src="https://www.youtube.com/embed/mKT4o4y9xmI" title="Course Video"
+                frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+        </div>
+
+        <div class="course-description">
+            <h2>Course Description</h2>
+            <p>
+                <%= course ? course.description
+                    : 'Here is where you can add the detailed content of the course. Explain what students will learn and other important details.'
+                    %>
+            </p>
+        </div>
+    </div>
+</div>

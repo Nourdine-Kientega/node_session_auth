@@ -1,0 +1,8 @@
+
+<div class="container">
+    <div class="course-container">
+        <% courses.forEach(course => { %>
+            <%- include('courseItem', { course }) %>
+        <% }); %>
+    </div>
+</div>

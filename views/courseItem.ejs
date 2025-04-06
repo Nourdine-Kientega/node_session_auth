@@ -1,0 +1,10 @@
+<div class="course-card">
+    <img src="<%= course.image %>" alt="<%= course.title %>" class="course-image" />
+    <div class="course-content">
+        <h3 class="course-title"><%= course.title %></h3>
+        <div class="course-footer">
+            <a href="/read_course/<%= course.id %>" class="follow-button">Follow Course</a>
+            <span class="course-time"><%= `${course.time.split(":")[0] + 'h'}:${course.time.split(":")[1] + 'min'}` %></span>
+        </div>
+    </div>
+</div>

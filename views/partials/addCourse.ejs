@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="form-container">
+
+        <!-- Alert Panel (You can add a real alert system later with JavaScript) -->
+        <!-- <div id="alert" style="display: none; background-color: #d4edda;">Success Message</div> -->
+        
+        <div class="form-content">
+            <i class="fas fa-book profile-img logo"></i>
+            <h2 class="title">Add new course</h2>
+            <form class="login-form" action="/submit-form" method="POST" enctype="multipart/form-data">
+                <input type="text" id="title" name="title" placeholder="Enter course title" required class="input-field" />
+                <input type="time" id="time" name="time" placeholder="Enter course time (minutes)" required class="input-field" />
+                <input type="file" id="image" name="image" required class="input-field" accept="image/png, image/jpeg, image/jpg" />
+                <textarea id="description" name="description" placeholder="Enter course description" required class="input-field"></textarea>
+                <button type="submit" class="btn-login">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>

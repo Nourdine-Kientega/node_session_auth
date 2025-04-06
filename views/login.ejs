@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="form-container">
+      
+      <!-- Display Alert Message if Any -->
+  
+      <div class="form-content">
+        <i class="fas fa-user-circle profile-img logo"></i>
+        <h2 class="title">Login</h2>
+
+        <!-- Login Form -->
+        <form class="login-form" method="POST" action="/login">
+          <input type="email" name="email" placeholder="Email" required class="input-field" />
+          <input type="password" name="password" placeholder="Password" required class="input-field" />
+          
+          <div class="checkbox-field">
+            <input id="stay_logged" type="checkbox" name="stay_logged" />
+            <label for="stay_logged">Se souvenir de moi (5min)</label>
+          </div>
+          
+          <button type="submit" class="btn-login">Login</button>
+        </form>
+  
+        <p class="signup-text">Don't have an account? <a href="/signup">Sign Up</a></p>
+      </div>
+    </div>
+  </div>
+  
