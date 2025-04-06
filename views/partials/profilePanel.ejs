@@ -1,0 +1,46 @@
+<div class="user-panel">
+    <div class="card">
+        <i class="fas fa-user-circle user-icon"></i>
+        <div>
+            <h3 class="username"></h3>
+            <form action="/logout" method="post">
+                <button type="submit" class="btn-logout">Logout</button>
+            </form>
+        </div>
+        <div>
+            <p class="not-logged-in">You are not logged in.</p>
+            <a href="/login" class="btn-login">Login</a>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Fetch user session to verify if they are logged in
+    fetch('/session')
+        .then(response => response.json())
+        .then(data => {
+            const userPanel = document.querySelector('.user-panel');
+            const usernameElement = userPanel.querySelector('.username');
+            const logoutButton = userPanel.querySelector('.btn-logout');
+            const loginButton = userPanel.querySelector('.btn-login');
+            const notLoggedInMsg = userPanel.querySelector('.not-logged-in');
+
+            // Check if user is logged in by checking the 'username' from session
+            if (data.username) {
+                // User is logged in, update the UI to show their username and logout button
+                usernameElement.textContent = data.username;
+                logoutButton.style.display = 'block'; // Show the logout button
+                loginButton.style.display = 'none';  // Hide the login button
+                notLoggedInMsg.style.display = 'none'; // Hide "You are not logged in" message
+            } else {
+                // User is not logged in, show the login message and login button
+                usernameElement.textContent = '';  // Clear the username
+                loginButton.style.display = 'block'; // Show the login button
+                logoutButton.style.display = 'none'; // Hide the logout button
+                notLoggedInMsg.style.display = 'block'; // Show the "You are not logged in" message
+            }
+        })
+        .catch(error => {
+            console.error('Error fetching user session:', error);
+        });
+</script>

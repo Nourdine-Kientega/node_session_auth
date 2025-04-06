@@ -10,6 +10,7 @@
         <nav class="nav-links">
           <a href="/">Home</a>
           <a href="/#">About</a>
+          <a href="/admin">Admin</a>
         </nav>
       </div>
 
@@ -18,13 +19,31 @@
           <i class="fas fa-user-circle profile-img"></i>
         </div>
         <div class="dropdown">
-          <button class="dropdown-btn">
+          <button title="Show profile" class="dropdown-btn" id="dropdown-btn">
             <i class="fas fa-caret-down"></i>
           </button>
-          <!-- Optional dropdown panel content can be added here -->
+
+          <!-- Profile Panel, included here -->
+          <div class="dropdown-panel" id="dropdown-panel">
+            <%- include ('./profilePanel.ejs') %>
+          </div>
+
         </div>
       </div>
     </header>
 
     <hr class="header-line" />
 </div>
+
+
+<script>
+  // Get the dropdown button and panel
+  const dropdownBtn = document.getElementById('dropdown-btn');
+  const dropdownPanel = document.getElementById('dropdown-panel');
+
+  // Add a click event listener to toggle the visibility of the dropdown panel
+  dropdownBtn.addEventListener('click', function() {
+      // Toggle the "active" class to show/hide the panel
+      dropdownPanel.classList.toggle('active');
+  });
+</script>
