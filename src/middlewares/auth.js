@@ -18,5 +18,13 @@ function isAdmin(req, res, next) {
     }
 }
 
+function redirectIfLoggedIn(req, res, next) {
+    if (req.session && req.session.user) {
+        return res.redirect('/');  // If user is logged in, redirect to homepage
+    } else {
+        return next();  // If user is not logged in, proceed to login page
+    }
+}
+
 // Export middleware functions
-export { isLoggedIn, isAdmin };
+export { isLoggedIn, isAdmin, redirectIfLoggedIn };

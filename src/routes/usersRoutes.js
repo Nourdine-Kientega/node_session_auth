@@ -1,11 +1,12 @@
 import express from 'express';
 import { loginUser, logoutUser, sessionUser, showLoginPage, showSignupPage, signupUser, } from '../controllers/usersController.js';
+import { redirectIfLoggedIn } from '../middlewares/auth.js';
 
 const usersRouter = express.Router();
 
-usersRouter.get('/login', showLoginPage);
+usersRouter.get('/login', redirectIfLoggedIn, showLoginPage);
 
-usersRouter.get('/signup', showSignupPage);
+usersRouter.get('/signup', redirectIfLoggedIn, showSignupPage);
 
 usersRouter.post('/login', loginUser);
 

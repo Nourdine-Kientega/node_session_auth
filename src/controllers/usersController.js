@@ -44,7 +44,7 @@ const signupUser = async (req, res) => {
 
 const loginUser = async (req, res) => {
 
-    const { email, password } = req.body;
+    const { email, password, stay_logged } = req.body;
 
     try {
         // Check if user exists in the database
@@ -61,6 +61,10 @@ const loginUser = async (req, res) => {
         if (!isPasswordValid) {
             res.redirect('/login');
             // return res.status(400).json({ message: 'Invalid credentials' });
+        }
+
+        if (stay_logged) {
+            req.session.cookie.maxAge = 15 * 60 * 1000; // 15 minutes in milliseconds
         }
 
         req.session.user = {
